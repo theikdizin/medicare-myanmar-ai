@@ -360,6 +360,15 @@ export default function Chat() {
                 variant="ghost"
                 size="sm"
                 className="w-full justify-start"
+                onClick={() => setLocation("/profile")}
+              >
+                <User className="h-4 w-4 mr-2" />
+                My Profile
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
                 onClick={() => setLocation("/password-reset")}
               >
                 <RotateCcw className="h-4 w-4 mr-2" />

@@ -66,7 +66,7 @@
 - [x] Create README with setup instructions
 - [x] Create requirements.txt
 - [x] Create .env.example
-- [ ] Push to GitHub repository
+- [x] Push to GitHub repository
 
 ## Testing
 - [x] Write vitest tests for chat procedures
@@ -75,3 +75,10 @@
 - [x] Test RAG context building
 - [x] Test role-based access control
 - [x] Test medical system prompt content
+## User Profile Page (New Feature)
+- [x] Create user_profile table in database
+- [x] Add profile edit profile procedures (backend)
+- [x] Create User Profile page with personal info editing
+- [x] Add medical summary/record section
+- [x] Add route and sidebar navigation
+- [x] Write tests for profile procedures

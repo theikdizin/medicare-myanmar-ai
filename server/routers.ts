@@ -260,6 +260,51 @@ export const appRouter = router({
     }),
   }),
 
+  // ==================== Profile Router ====================
+  profile: router({
+    // Get current user's profile
+    get: protectedProcedure.query(async ({ ctx }) => {
+      const profile = await db.getUserProfile(ctx.user.id);
+      // Merge with user account info
+      return {
+        profile,
+        account: {
+          id: ctx.user.id,
+          name: ctx.user.name,
+          email: ctx.user.email,
+          role: ctx.user.role,
+          createdAt: ctx.user.createdAt,
+        },
+      };
+    }),
+
+    // Update user profile
+    update: protectedProcedure
+      .input(z.object({
+        fullName: z.string().optional(),
+        dateOfBirth: z.string().optional(),
+        gender: z.enum(['male', 'female', 'other', 'prefer_not_to_say']).optional(),
+        bloodType: z.string().optional(),
+        phone: z.string().optional(),
+        address: z.string().optional(),
+        nationality: z.string().optional(),
+        occupation: z.string().optional(),
+        // Medical information
+        allergies: z.string().optional(),
+        currentMedications: z.string().optional(),
+        chronicConditions: z.string().optional(),
+        pastSurgeries: z.string().optional(),
+        familyHistory: z.string().optional(),
+        medicalNotes: z.string().optional(),
+        emergencyContactName: z.string().optional(),
+        emergencyContactPhone: z.string().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const updatedProfile = await db.upsertUserProfile(ctx.user.id, input);
+        return { success: true, profile: updatedProfile };
+      }),
+  }),
+
   // ==================== Password Reset Router ====================
   passwordReset: router({
     // Request password reset (generates token)

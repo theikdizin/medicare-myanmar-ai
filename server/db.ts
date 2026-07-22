@@ -1,7 +1,7 @@
 import { eq, desc, and, gt, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { InsertUser, users } from "../drizzle/schema";
-import { chatSessions, chatMessages, documents, documentChunks, passwordResetTokens } from "../drizzle/schema";
+import { chatSessions, chatMessages, documents, documentChunks, passwordResetTokens, userProfiles, InsertUserProfile } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -247,4 +247,36 @@ export async function updateUserRole(userId: number, role: 'user' | 'admin') {
   const db = await getDb();
   if (!db) return;
   await db.update(users).set({ role }).where(eq(users.id, userId));
+}
+
+// ==================== User Profile ====================
+
+export async function getUserProfile(userId: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(userProfiles).where(eq(userProfiles.userId, userId)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function upsertUserProfile(userId: number, profile: Partial<InsertUserProfile>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const existing = await getUserProfile(userId);
+
+  const data = { ...profile, userId };
+  // Remove undefined values
+  Object.keys(data).forEach(key => {
+    if (data[key as keyof typeof data] === undefined) {
+      delete data[key as keyof typeof data];
+    }
+  });
+
+  if (existing) {
+    await db.update(userProfiles).set(data as any).where(eq(userProfiles.userId, userId));
+  } else {
+    await db.insert(userProfiles).values(data as any);
+  }
+
+  return getUserProfile(userId);
 }

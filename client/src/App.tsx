@@ -11,6 +11,7 @@ import AdminUsers from "./pages/AdminUsers";
 import AdminDocuments from "./pages/AdminDocuments";
 import AdminSessions from "./pages/AdminSessions";
 import PasswordReset from "./pages/PasswordReset";
+import UserProfile from "./pages/UserProfile";
 import { useAuth } from "./_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { startLogin } from "./const";
@@ -70,6 +71,9 @@ function Router() {
       </Route>
       <Route path="/password-reset">
         <ProtectedRoute><PasswordReset /></ProtectedRoute>
+      </Route>
+      <Route path="/profile">
+        <ProtectedRoute><UserProfile /></ProtectedRoute>
       </Route>
       <Route path="/admin">
         <AdminRoute><AdminDashboard /></AdminRoute>

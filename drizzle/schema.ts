@@ -138,3 +138,36 @@ export const passwordResetTokens = mysqlTable(
 
 export type PasswordResetToken = typeof passwordResetTokens.$inferSelect;
 export type InsertPasswordResetToken = typeof passwordResetTokens.$inferInsert;
+
+/**
+ * User profile with personal info and medical summary.
+ */
+export const userProfiles = mysqlTable(
+  "user_profiles",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    userId: int("userId").notNull().unique(),
+    fullName: varchar("fullName", { length: 255 }),
+    dateOfBirth: varchar("dateOfBirth", { length: 20 }),
+    gender: mysqlEnum("gender", ["male", "female", "other", "prefer_not_to_say"]),
+    bloodType: varchar("bloodType", { length: 10 }),
+    phone: varchar("phone", { length: 30 }),
+    address: text("address"),
+    nationality: varchar("nationality", { length: 100 }),
+    occupation: varchar("occupation", { length: 255 }),
+    // Medical information
+    allergies: text("allergies"),
+    currentMedications: text("currentMedications"),
+    chronicConditions: text("chronicConditions"),
+    pastSurgeries: text("pastSurgeries"),
+    familyHistory: text("familyHistory"),
+    medicalNotes: text("medicalNotes"),
+    emergencyContactName: varchar("emergencyContactName", { length: 255 }),
+    emergencyContactPhone: varchar("emergencyContactPhone", { length: 30 }),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [index("idx_profiles_user").on(table.userId)]
+);
+
+export type UserProfile = typeof userProfiles.$inferSelect;
+export type InsertUserProfile = typeof userProfiles.$inferInsert;

@@ -15,6 +15,13 @@
       "when": 1784696819142,
       "tag": "0001_cold_vapor",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1784697426440,
+      "tag": "0002_lush_absorbing_man",
+      "breakpoints": true
     }
   ]
 }
