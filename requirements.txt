@@ -1,0 +1,45 @@
+# Medicare Myanmar AI - Dependencies
+# This project uses Node.js/TypeScript stack.
+# Install with: pnpm install
+#
+# Core Dependencies:
+# react@19 - UI framework
+# typescript - Type safety
+# tailwindcss - Styling
+# express - Backend server
+# trpc@11 - Type-safe API layer
+# drizzle-orm - Database ORM
+# mysql2 - MySQL driver
+# lucide-react - Icons
+# framer-motion - Animations
+# streamdown - Markdown rendering
+# sonner - Toast notifications
+# wouter - Routing
+# zod - Validation
+# axios - HTTP client
+# jose - JWT handling
+# nanoid - ID generation
+# recharts - Charts
+# date-fns - Date formatting
+#
+# AI/ML Dependencies:
+# Uses built-in Manus LLM API (Groq-compatible)
+# No additional Python packages required
+#
+# VSCode Extensions Recommended:
+# - ES7+ React/Redux/React-Native snippets
+# - Tailwind CSS IntelliSense
+# - TypeScript Importer
+# - Prettier - Code formatter
+# - ESLint
+# - Drizzle - Database ORM extension
+#
+# Run locally:
+#   pnpm install
+#   pnpm dev
+#
+# Test:
+#   pnpm test
+#
+# Type check:
+#   pnpm check
