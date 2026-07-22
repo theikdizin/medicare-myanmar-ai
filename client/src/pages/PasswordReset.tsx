@@ -39,7 +39,7 @@ export default function PasswordReset() {
   );
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background p-4">
+    <div className="flex items-center justify-center min-h-screen bg-background p-3 md:p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
           <div className="flex items-center gap-3 mb-2">

@@ -1,0 +1,13 @@
+Mobile Audit Results (375x812 viewport):
+
+1. Chat page: Sidebar and chat area both visible side-by-side on mobile - takes too much space. Need collapsible sidebar.
+2. Admin pages: Sidebar overlaps content, titles get cut off, table cards too narrow.
+3. Profile page: Tabs overlap each other (Personal Info, Medical Records, Emergency Contact text overlaps).
+4. Password Reset: Looks OK on mobile, centered card.
+5. Home page: Need to check.
+6. General issues:
+   - Admin sidebar should be collapsible/drawer on mobile
+   - Chat sidebar should be a slide-over drawer on mobile
+   - Profile tabs need horizontal scroll or stacking on mobile
+   - Admin tables need horizontal scroll on mobile
+   - All pages need proper padding adjustments for mobile

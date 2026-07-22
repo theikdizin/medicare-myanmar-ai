@@ -1,0 +1,23 @@
+Mobile viewport (375x812) - Second check after fix:
+
+1. Chat page (/chat) - FIXED and working perfectly now
+   - Hamburger menu icon visible at top-left
+   - "New Chat" title visible
+   - "Admin" badge visible at top-right
+   - Empty chat with suggested prompts shows nicely
+   - Input area at bottom with send button
+   - Disclaimer text at bottom
+   - Dark theme looks clean on mobile
+
+2. Profile page (/profile) - Still working perfectly
+   - Header with avatar, "My Profile", "Back" button
+   - Profile summary card with avatar, name, email, role
+   - Tabs (Personal, Medical, Contact) compact and readable
+   - Form fields properly sized
+
+3. Home page (/) - Still showing DialogTrigger error
+   - The error persists on Home page
+   - Must be coming from a different component
+   - Need to check if Home page renders any dialog components
+
+4. Still need to check Admin pages on mobile

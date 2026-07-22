@@ -1,0 +1,20 @@
+Mobile viewport (375x812) observations:
+
+1. Home page (/) - DialogTrigger error: 'DialogTrigger' must be used within 'Dialog'
+   - This is from the AIChatBox component being rendered on Home page
+   - Need to fix: either wrap in Dialog or conditionally render
+
+2. Chat page (/chat) - Same DialogTrigger error
+   - The chat page loads but shows error overlay
+   - Need to fix the DialogTrigger usage
+
+3. Profile page (/profile) - WORKING GOOD
+   - Header with avatar and "Back" button looks clean
+   - Profile summary card with avatar, name, email, role displays well
+   - Tabs (Personal, Medical, Contact) are compact and readable
+   - Form fields are properly sized and accessible
+   - Need to check if there are any overflow issues
+
+KEY FIX NEEDED: DialogTrigger error in Chat.tsx and possibly Home.tsx
+The error is: `DialogTrigger` must be used within `Dialog`
+This is likely from using SheetTrigger incorrectly or DialogTrigger without a Dialog wrapper.

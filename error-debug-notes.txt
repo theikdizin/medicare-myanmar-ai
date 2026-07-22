@@ -1,0 +1,12 @@
+Error Debug Notes:
+- Home page (/) still shows DialogTrigger error after restart
+- Chat page (/chat) works fine on mobile
+- Profile page (/profile) works fine on mobile
+- The error is from radix-ui DialogTrigger needing DialogPrimitive.Root context
+- No DialogTrigger usage found in Home.tsx or any route pages
+- The error might be from the dialog.tsx component itself having a context mismatch
+- The dialog.tsx wraps DialogPrimitive.Root inside DialogCompositionContext.Provider
+- But the DialogTrigger calls DialogPrimitive.Trigger which needs DialogPrimitive.Root
+- Possible issue: dialog.tsx exports DialogTrigger which uses DialogPrimitive.Trigger
+- The DialogPrimitive.Trigger has an internal context check
+- Let me check if the dialog component's DialogTrigger is being used somewhere in the ErrorBoundary or theme provider

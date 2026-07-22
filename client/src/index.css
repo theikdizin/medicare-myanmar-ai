@@ -177,3 +177,46 @@
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.45 0.01 260);
 }
+
+/* Mobile-friendly improvements */
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow on mobile */
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Improve touch targets for mobile */
+  button, a, [role="button"] {
+    min-height: 44px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .hover\:bg-accent\/20:hover {
+    background-color: inherit;
+  }
+}
+
+/* Safe area insets for iOS */
+@supports (padding: env(safe-area-inset-top)) {
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Input fields mobile - prevent zoom on iOS */
+input, select, textarea {
+  font-size: 16px;
+}
+
+@media (min-width: 640px) {
+  input, select, textarea {
+    font-size: inherit;
+  }
+}

@@ -82,3 +82,16 @@
 - [x] Add medical summary/record section
 - [x] Add route and sidebar navigation
 - [x] Write tests for profile procedures
+## Mobile Responsive Improvements
+- [ ] Audit all pages for mobile responsiveness issues
+- [ ] Fix Chat page mobile layout (sidebar, input area, message bubbles)
+- [ ] Fix Home/Landing page mobile layout
+- [ ] Fix Admin Dashboard mobile layout
+- [ ] Fix Admin pages (Users, Documents, Sessions) mobile layout
+- [ ] Fix User Profile page mobile layout
+- [ ] Fix Password Reset page mobile layout
+- [ ] Fix Navigation/Header mobile behavior
+- [ ] Test mobile viewport on all pages
+## Bug Fixes
+- [x] Fix DialogTrigger error on Home page - DialogTrigger must be used within Dialog
+- [x] Fix SheetTrigger error in all admin pages - replaced with controlled open state

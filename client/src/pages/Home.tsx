@@ -76,22 +76,22 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-        <div className="relative max-w-6xl mx-auto px-4 py-20 md:py-32">
+        <div className="relative max-w-6xl mx-auto px-3 md:px-4 py-12 md:py-32">
           <div className="flex flex-col items-center text-center gap-8">
             <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">Powered by AI & LangChain</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-tight">
               Medicare Myanmar AI
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
               မြန်မာနိုင်ငံအတွက် AI ဆေးပညာ အကူအညီ ချက်ဘော့
             </p>
             
-            <p className="text-base text-muted-foreground max-w-xl">
+            <p className="text-sm md:text-base text-muted-foreground max-w-xl">
               AI-powered medical assistant with RAG pipeline, Myanmar language support, and intelligent document processing for healthcare professionals and patients.
             </p>
 
@@ -113,12 +113,12 @@ export default function Home() {
       </div>
 
       {/* Features Grid */}
-      <div className="max-w-6xl mx-auto px-4 py-20">
+      <div className="max-w-6xl mx-auto px-3 md:px-4 py-12 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => (
             <div
               key={i}
-              className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+              className="group p-4 md:p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <feature.icon className="w-6 h-6 text-primary" />

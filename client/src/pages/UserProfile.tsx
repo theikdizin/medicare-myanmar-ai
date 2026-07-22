@@ -165,24 +165,24 @@ export default function UserProfile() {
     <div className="flex flex-col min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container flex items-center justify-between h-14 px-4">
-          <div className="flex items-center gap-3">
+        <div className="container flex items-center justify-between h-14 px-3 md:px-4">
+          <div className="flex items-center gap-2 md:gap-3">
             <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">
               {user?.name?.charAt(0) || "U"}
             </div>
-            <div>
-              <h1 className="text-sm font-semibold">My Profile</h1>
-              <p className="text-xs text-muted-foreground">Manage your personal and medical information</p>
+            <div className="min-w-0">
+              <h1 className="text-sm font-semibold truncate">My Profile</h1>
+              <p className="text-xs text-muted-foreground hidden sm:block">Manage your personal and medical information</p>
             </div>
           </div>
-          <a href="/chat" className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
-            Back to Chat
+          <a href="/chat" className="text-sm text-blue-400 hover:text-blue-300 transition-colors shrink-0">
+            Back
           </a>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 container py-6 px-4 max-w-4xl">
+      <main className="flex-1 container py-4 md:py-6 px-3 md:px-4 max-w-4xl">
         {profileQuery.isLoading ? (
           <div className="flex items-center justify-center h-64">
             <Loader2 className="h-8 w-8 animate-spin text-blue-400" />
@@ -201,15 +201,15 @@ export default function UserProfile() {
             {/* Profile Summary Card */}
             <Card className="bg-card border-border/50">
               <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl font-bold">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-lg md:text-2xl font-bold shrink-0">
                     {formData.fullName ? formData.fullName.charAt(0) : (user?.name?.charAt(0) || "U")}
                   </div>
-                  <div>
-                    <CardTitle className="text-xl">
+                  <div className="min-w-0">
+                    <CardTitle className="text-base md:text-xl truncate">
                       {formData.fullName || user?.name || "Myanmar User"}
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="truncate">
                       {user?.email} · {user?.role === "admin" ? "Administrator" : "User"}
                     </CardDescription>
                     {account && (
@@ -225,17 +225,20 @@ export default function UserProfile() {
             {/* Tabs */}
             <Tabs value={activeTab} onValueChange={setActiveTab}>
               <TabsList className="grid grid-cols-3 w-full bg-muted/50">
-                <TabsTrigger value="personal" className="gap-2">
-                  <User className="h-4 w-4" />
-                  <span>Personal Info</span>
+                <TabsTrigger value="personal" className="gap-1 md:gap-2 text-xs md:text-sm">
+                  <User className="h-3 w-3 md:h-4 md:w-4" />
+                  <span className="hidden sm:inline">Personal Info</span>
+                  <span className="sm:hidden">Personal</span>
                 </TabsTrigger>
-                <TabsTrigger value="medical" className="gap-2">
-                  <Heart className="h-4 w-4" />
-                  <span>Medical Records</span>
+                <TabsTrigger value="medical" className="gap-1 md:gap-2 text-xs md:text-sm">
+                  <Heart className="h-3 w-3 md:h-4 md:w-4" />
+                  <span className="hidden sm:inline">Medical Records</span>
+                  <span className="sm:hidden">Medical</span>
                 </TabsTrigger>
-                <TabsTrigger value="emergency" className="gap-2">
-                  <Shield className="h-4 w-4" />
-                  <span>Emergency Contact</span>
+                <TabsTrigger value="emergency" className="gap-1 md:gap-2 text-xs md:text-sm">
+                  <Shield className="h-3 w-3 md:h-4 md:w-4" />
+                  <span className="hidden sm:inline">Emergency</span>
+                  <span className="sm:hidden">Contact</span>
                 </TabsTrigger>
               </TabsList>
 
@@ -513,21 +516,22 @@ export default function UserProfile() {
             </Tabs>
 
             {/* Save Button */}
-            <div className="flex justify-end pt-4 pb-8">
+            <div className="flex justify-end pt-4 pb-6 md:pb-8">
               <Button
                 onClick={handleSubmit}
                 disabled={updateMutation.isPending}
-                className="bg-blue-600 hover:bg-blue-500 text-white gap-2"
+                className="bg-blue-600 hover:bg-blue-500 text-white gap-2 w-full sm:w-auto"
               >
                 {updateMutation.isPending ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    Saving...
+                    <span className="hidden sm:inline">Saving...</span>
                   </>
                 ) : (
                   <>
                     <Save className="h-4 w-4" />
-                    Save Profile
+                    <span className="hidden sm:inline">Save Profile</span>
+                    <span className="sm:hidden">Save</span>
                   </>
                 )}
               </Button>
